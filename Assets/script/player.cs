@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Rewired;
 
 public class player : MonoBehaviour
 {
+    [SerializeField]private int playerID = 0;
+	[SerializeField]private Player player2;
     public bool tap;
     public bool tapder;
     public bool tapizq;
@@ -14,6 +17,7 @@ public class player : MonoBehaviour
 
     public manager manager;
     public puntaje puntaje;
+    public float tempb;
     public void _tap()
     {
         tap = true;
@@ -30,11 +34,28 @@ public class player : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        player2 = ReInput.players.GetPlayer(playerID);
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if(player2.GetAxis("a") > 0 && tempb > 0.4f && manager.fin == false)
+        {
+            tap = true;
+            tempb = 0;
+        }
+        if(player2.GetAxis("hori") < 0 && tempb > 0.4f && manager.fin == false)
+        {
+            tapizq = true;
+            tempb = 0;
+        }
+        if(player2.GetAxis("hori") > 0 && tempb > 0.4f && manager.fin == false)
+        {
+            tapder = true;
+            tempb = 0;
+        }
         baseanim.SetBool("tap", false);
         if(tap == true)
         {
@@ -79,6 +100,10 @@ public class player : MonoBehaviour
         tap = false;
         tapder = false;
         tapizq = false;
+        if(tempb < 10)
+        {
+            tempb += 1 * Time.deltaTime;
+        }
         
     }
     public void OnCollisionEnter(Collision col) 
