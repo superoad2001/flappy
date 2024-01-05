@@ -14,10 +14,15 @@ public class player : MonoBehaviour
     public float vel = 1;
     private Rigidbody _rb;
     public Animator baseanim;
-
+    public AudioSource quack;
+    public AudioSource caidas;
+    public AudioSource alas;
+    public AudioSource alasr;
     public manager manager;
     public puntaje puntaje;
     public float tempb;
+    public float record;
+    public bool vez1 = false;
     public void _tap()
     {
         tap = true;
@@ -35,6 +40,7 @@ public class player : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         player2 = ReInput.players.GetPlayer(playerID);
+        record = PlayerPrefs.GetInt("record",-1);
     }
 
     // Update is called once per frame
@@ -59,6 +65,7 @@ public class player : MonoBehaviour
         baseanim.SetBool("tap", false);
         if(tap == true)
         {
+            quack.Play();
             _rb.velocity = Vector3.up * vel;
             baseanim.SetBool("tap", true);
         }
@@ -110,6 +117,7 @@ public class player : MonoBehaviour
     {
         if(col.gameObject.tag == "mata")
         {
+            caidas.Play();
             manager.perder();
         }
         
@@ -118,7 +126,13 @@ public class player : MonoBehaviour
     {
         if(col.gameObject.tag == "puntomas")
         {
+            alas.Play();
             puntaje.puntaje1++;
+            if(puntaje.puntaje1 > record && vez1 == false)
+            {
+                alasr.Play();
+                vez1 = true;
+            }
         }
     }
     

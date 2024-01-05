@@ -23,36 +23,44 @@ public class g_tuberiam : MonoBehaviour
     {
         GameObject tuberian = Instantiate(tuberia);
         tuberian.transform.position = transform.position + new Vector3(0,0,10);
+        tuberian.GetComponent<tuberia>().momento = 99;
         Destroy(tuberian, dest);
 
         GameObject tuberian2 = Instantiate(tuberia2);
         tuberian2.transform.position = transform.position + new Vector3(0,0,10);
+        tuberian2.GetComponent<tuberia>().momento = 99;
         Destroy(tuberian2, dest);
 
         GameObject tuberian8 = Instantiate(tuberiabloc);
         tuberian8.transform.position = transform.position + new Vector3(3,-85,10);
+        tuberian8.GetComponent<tuberia>().momento = 99;
         Destroy(tuberian8, dest);
 
         GameObject tuberian9 = Instantiate(tuberiabloc);
         tuberian9.transform.position = transform.position + new Vector3(-3,-85,10);
+        tuberian9.GetComponent<tuberia>().momento = 99;
         Destroy(tuberian9, dest);
 
 
 
         GameObject tuberian12 = Instantiate(tuberia);
         tuberian12.transform.position = transform.position + new Vector3(0,0,30);
+        tuberian12.GetComponent<tuberia>().momento = 99;
         Destroy(tuberian12, dest);
 
         GameObject tuberian22 = Instantiate(tuberia2);
         tuberian22.transform.position = transform.position + new Vector3(0,0,30);
+        tuberian22.GetComponent<tuberia>().momento = 99;
         Destroy(tuberian22, dest);
 
         GameObject tuberian82 = Instantiate(tuberiabloc);
         tuberian82.transform.position = transform.position + new Vector3(3,-85,30);
+        tuberian82.GetComponent<tuberia>().momento = 99;
         Destroy(tuberian82,dest );
 
         GameObject tuberian92 = Instantiate(tuberiabloc);
         tuberian92.transform.position = transform.position + new Vector3(-3,-85,30);
+        tuberian92.GetComponent<tuberia>().momento = 99;
         Destroy(tuberian92, dest);
 
     }
@@ -65,18 +73,22 @@ public class g_tuberiam : MonoBehaviour
 
         GameObject tuberian = Instantiate(tuberia);
         tuberian.transform.position = transform.position + new Vector3(0,0,30);
+        tuberian.GetComponent<tuberia>().momento = 99;
         Destroy(tuberian, dest);
 
         GameObject tuberian2 = Instantiate(tuberia2);
         tuberian2.transform.position = transform.position + new Vector3(0,0,30);
+        tuberian2.GetComponent<tuberia>().momento = 99;
         Destroy(tuberian2, dest);
 
         GameObject tuberian3 = Instantiate(tuberiabloc);
         tuberian3.transform.position = transform.position + new Vector3(3,-85,30);
+        tuberian3.GetComponent<tuberia>().momento = 99;
         Destroy(tuberian3, dest);
 
         GameObject tuberian4 = Instantiate(tuberiabloc);
         tuberian4.transform.position = transform.position + new Vector3(-3,-85,30);
+        tuberian4.GetComponent<tuberia>().momento = 99;
         Destroy(tuberian4, dest);
         tempin = 0;
            

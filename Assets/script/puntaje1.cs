@@ -7,6 +7,7 @@ public class puntaje1 : MonoBehaviour
 {
     public static int record = 0;
     public Text recordt;
+    public Text recordt2;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,5 +18,6 @@ public class puntaje1 : MonoBehaviour
     void Update()
     {
         recordt.text = "" +record;
+        recordt2.text = "" +record;
     }
 }
