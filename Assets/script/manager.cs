@@ -45,12 +45,12 @@ public class manager : MonoBehaviour
     {
         string result;
 
-    	result = Path.Combine(Application.persistentDataPath,"AlienData");
-        result = Path.Combine(result, $"alien1data.data");
+    	result = Path.Combine(Application.persistentDataPath,"Fallbird");
+        result = Path.Combine(result, $"Fallbirddata.data");
 
 		#if UNITY_EDITOR
-    	result = Path.Combine(Application.persistentDataPath,"AlienDatadev");
-        result = Path.Combine(result, $"alien1data.data");
+    	result = Path.Combine(Application.persistentDataPath,"FallbirdDev");
+        result = Path.Combine(result, $"Fallbirddata.data");
 		#endif
  
         repath = result;
