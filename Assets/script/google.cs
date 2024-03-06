@@ -20,8 +20,6 @@ public class google : MonoBehaviour
     {
         #if UNITY_ANDROID
         //Initialize PlayGamesPlatform
-        PlayGamesPlatform.Activate();
-        PlayGamesPlatform.Instance.ManuallyAuthenticate(ProcessAuthentication);
         #endif
     }
     public void Start()
@@ -29,7 +27,22 @@ public class google : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
 
         #if UNITY_ANDROID
-        
+        //no funciona en el awake
+        PlayGamesClientConfiguration conf = new PlayGamesClientConfiguration.Builder().Build();
+        PlayGamesPlatform.InitializeInstance(conf);
+        PlayGamesPlatform.DebugLogEnabled = true;
+        PlayGamesPlatform.Activate();
+        Social.localUser.Authenticate((bool success) =>
+        {
+            if (success)
+            {
+                Debug.Log("Welcome " + Social.localUser.userName);
+            }
+            else
+            {
+                Debug.Log("Authentication failed.");
+            }
+        });
 
 
 

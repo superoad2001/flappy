@@ -22,20 +22,22 @@ public class puntaje : MonoBehaviour
     void Start()
     {
         google googled = UnityEngine.Object.FindObjectOfType<google>();
+        manager manager = UnityEngine.Object.FindObjectOfType<manager>();
         puntaje1 = 0;
         if(juego3d)
         {
-        record = PlayerPrefs.GetInt("record",0);
+        record = manager.datos.record3d;
         }
         if(juego2d)
         {
-        record = PlayerPrefs.GetInt("record2d",0);
+        record = manager.datos.record3d;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
+        manager manager = UnityEngine.Object.FindObjectOfType<manager>();
         tpunt.text = "" + puntaje1;
         tpunt2.text = "" + puntaje1;
         if(puntaje1 > record)
@@ -43,12 +45,13 @@ public class puntaje : MonoBehaviour
             record = puntaje1;
             if(juego3d)
             {
-            PlayerPrefs.SetInt("record",record);
+            manager.datos.record3d = record;
             }
             if(juego2d)
             {
-            PlayerPrefs.SetInt("record2d",record);
+            manager.datos.record2d = record;
             }
+            manager.guardar();
             nrecord.text = "nuevo record";
             nrecord2.text = "nuevo record";
             google googled = UnityEngine.Object.FindObjectOfType<google>();
@@ -64,7 +67,7 @@ public class puntaje : MonoBehaviour
                 {
                     Social.ReportScore(record, "CgkIq9Xq0KQbEAIQCQ", (bool success) => {});
                 }
-                if(PlayerPrefs.GetInt("record",0) >= 100)
+                if(manager.datos.record3d >= 100  || manager.datos.record2d >= 100)
                 {
                     Social.ReportProgress("CgkIq9Xq0KQbEAIQAg", 100.0f, (bool success) => {});
                 }

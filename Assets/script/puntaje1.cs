@@ -11,7 +11,10 @@ public class puntaje1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        record = PlayerPrefs.GetInt("record",0);
+        google googled = UnityEngine.Object.FindObjectOfType<google>();
+        manager manager = UnityEngine.Object.FindObjectOfType<manager>();
+
+        record = manager.datos.record3d;
     }
 
     // Update is called once per frame

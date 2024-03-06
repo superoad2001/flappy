@@ -43,13 +43,14 @@ public class player : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         player2 = ReInput.players.GetPlayer(playerID);
+        manager manager = UnityEngine.Object.FindObjectOfType<manager>();
         if(juego3d)
         {
-            record = PlayerPrefs.GetInt("record",-1);
+        record = manager.datos.record3d;
         }
         if(juego2d)
         {
-            record = PlayerPrefs.GetInt("record2d",-1);
+        record = manager.datos.record3d;
         }
     }
 

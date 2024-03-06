@@ -6,6 +6,7 @@ using Rewired;
 using UnityEditor;
 using UnityEngine.UI;
 using GooglePlayGames;
+using System.IO;
 
 public class manager : MonoBehaviour
 {
@@ -34,9 +35,62 @@ public class manager : MonoBehaviour
     public GameObject bot2;
     public bool juego3d;
     public bool juego2d;
+
+    [SerializeField]
+    public datos datos;
+
+    public string repath;
+
+    public void GetFilePath()
+    {
+        string result;
+
+    	result = Path.Combine(Application.persistentDataPath,"AlienData");
+        result = Path.Combine(result, $"alien1data.data");
+
+		#if UNITY_EDITOR
+    	result = Path.Combine(Application.persistentDataPath,"AlienDatadev");
+        result = Path.Combine(result, $"alien1data.data");
+		#endif
+ 
+        repath = result;
+    }
+    public void guardar()
+    {
+        GetFilePath();
+        string path = repath;
+        if(File.Exists(path))
+        {
+            string datosc = JsonUtility.ToJson(datos);
+            File.WriteAllText(path,datosc);
+            Debug.Log(datosc);
+        }
+        else if(!File.Exists(path))
+        {
+            System.IO.FileInfo file = new System.IO.FileInfo(path);
+            file.Directory.Create();
+            string datosc = JsonUtility.ToJson(datos);
+            File.WriteAllText(path,datosc);
+            Debug.Log(datosc);
+        }
+        
+    }
+    public void cargar()
+    {
+        GetFilePath();
+        string path = repath;
+        if(File.Exists(path))
+        {
+            string datosc = File.ReadAllText(path);
+            datos = JsonUtility.FromJson<datos>(datosc);
+            Debug.Log(datosc);
+        }
+        
+    }
     // Start is called before the first frame update
     void Start()
     {
+        cargar();
         google googled = UnityEngine.Object.FindObjectOfType<google>();
         Time.timeScale = 1;
         player2 = ReInput.players.GetPlayer(playerID);
@@ -52,25 +106,25 @@ public class manager : MonoBehaviour
         }
         if(PlayGamesPlatform.Instance.IsAuthenticated())
         {
-        if(juego3d)
-        {
+            if(juego3d)
+            {
 
-        #if UNITY_ANDROID
-        googled.LoadUsers("CgkIq9Xq0KQbEAIQAQ");
-        #endif
-        }
-        if(juego2d)
-        {
-        #if UNITY_ANDROID
-        googled.LoadUsers("CgkIq9Xq0KQbEAIQCQ");
-        #endif
-        }
-        if(juego)
-        {
-            record1.text = googled.puesto1;
-            record2.text = googled.puesto2;
-            record3.text = googled.puesto3;
-        }
+            #if UNITY_ANDROID
+            googled.LoadUsers("CgkIq9Xq0KQbEAIQAQ");
+            #endif
+            }
+            if(juego2d)
+            {
+            #if UNITY_ANDROID
+            googled.LoadUsers("CgkIq9Xq0KQbEAIQCQ");
+            #endif
+            }
+            if(juego)
+            {
+                record1.text = googled.puesto1;
+                record2.text = googled.puesto2;
+                record3.text = googled.puesto3;
+            }
         }
 
     }
