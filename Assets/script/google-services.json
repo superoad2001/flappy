@@ -1,0 +1,38 @@
+{
+  "project_info": {
+    "project_number": "937546132139",
+    "project_id": "fallbird3d",
+    "storage_bucket": "fallbird3d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:937546132139:android:20c5b714279d55543ce5ee",
+        "android_client_info": {
+          "package_name": "com.superoad2001.flappy3d"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "937546132139-h8nvlmntcm5i8b5mpojdc4i9kvehuulc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.superoad2001.flappy3d",
+            "certificate_hash": "556d4af4e397f22e9e887380677104422e1b798d"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuA-GmNnfy0c8Dm_Za8M2AyZV8v9OJORM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

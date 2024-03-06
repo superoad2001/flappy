@@ -23,6 +23,9 @@ public class player : MonoBehaviour
     public float tempb;
     public float record;
     public bool vez1 = false;
+
+    public bool juego3d;
+    public bool juego2d;
     public void _tap()
     {
         tap = true;
@@ -40,7 +43,14 @@ public class player : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         player2 = ReInput.players.GetPlayer(playerID);
-        record = PlayerPrefs.GetInt("record",-1);
+        if(juego3d)
+        {
+            record = PlayerPrefs.GetInt("record",-1);
+        }
+        if(juego2d)
+        {
+            record = PlayerPrefs.GetInt("record2d",-1);
+        }
     }
 
     // Update is called once per frame
@@ -69,39 +79,43 @@ public class player : MonoBehaviour
             _rb.velocity = Vector3.up * vel;
             baseanim.SetBool("tap", true);
         }
-        if(tapder == true)
+        if(juego3d)
         {
+            if(tapder == true)
+            {
+                if (posicion == 1)
+                {
+                    posicion = 2;
+                }
+                else if (posicion == 2)
+                {
+                    posicion = 3;
+                }
+            }
+            if(tapizq == true)
+            {
+                if (posicion == 2)
+                {
+                    posicion = 1;
+                }
+                else if (posicion == 3)
+                {
+                    posicion = 2;
+                }
+            }
+        
             if (posicion == 1)
             {
-                posicion = 2;
+                transform.position = Vector3.MoveTowards(transform.position,new Vector3(-3,transform.position.y,0),10 * Time.deltaTime);
             }
-            else if (posicion == 2)
-            {
-                posicion = 3;
-            }
-        }
-        if(tapizq == true)
-        {
             if (posicion == 2)
             {
-                posicion = 1;
+                transform.position = Vector3.MoveTowards(transform.position,new Vector3(0,transform.position.y,0),10 * Time.deltaTime);
             }
-            else if (posicion == 3)
+            if (posicion == 3)
             {
-                posicion = 2;
+                transform.position = Vector3.MoveTowards(transform.position,new Vector3(3,transform.position.y,0),10 * Time.deltaTime);
             }
-        }
-        if (posicion == 1)
-        {
-            transform.position = Vector3.MoveTowards(transform.position,new Vector3(-3,transform.position.y,0),5 * Time.deltaTime);
-        }
-        if (posicion == 2)
-        {
-            transform.position = Vector3.MoveTowards(transform.position,new Vector3(0,transform.position.y,0),5 * Time.deltaTime);
-        }
-        if (posicion == 3)
-        {
-            transform.position = Vector3.MoveTowards(transform.position,new Vector3(3,transform.position.y,0),5 * Time.deltaTime);
         }
 
         tap = false;
