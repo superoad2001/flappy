@@ -1042,6 +1042,10 @@ MonoBehaviour:
   bot2: {fileID: 0}
   juego3d: 1
   juego2d: 0
+  datos:
+    record3d: 0
+    record2d: 0
+  repath: 
   vez1: 0
 --- !u!114 &347825143
 MonoBehaviour:
@@ -2535,7 +2539,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -1, y: 795.9999}
-  m_SizeDelta: {x: 710.02, y: 300}
+  m_SizeDelta: {x: 643.2, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1286887147
 MonoBehaviour:

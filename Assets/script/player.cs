@@ -50,7 +50,7 @@ public class player : MonoBehaviour
         }
         if(juego2d)
         {
-        record = manager.datos.record3d;
+        record = manager.datos.record2d;
         }
     }
 

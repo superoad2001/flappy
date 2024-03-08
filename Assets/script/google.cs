@@ -54,6 +54,7 @@ public class google : MonoBehaviour
     }
     public void LoadUsers(string tabla)
     {
+      #if UNITY_ANDROID
 
         var lb = PlayGamesPlatform.Instance.CreateLeaderboard();
         lb.id = tabla;
@@ -75,6 +76,7 @@ public class google : MonoBehaviour
 
           }
         );
+        #endif
 
     }
     

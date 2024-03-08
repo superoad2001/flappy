@@ -94,7 +94,6 @@ public class manager : MonoBehaviour
         google googled = UnityEngine.Object.FindObjectOfType<google>();
         Time.timeScale = 1;
         player2 = ReInput.players.GetPlayer(playerID);
-
         if(Menu)
         {
         bot1.SetActive(false);
@@ -104,6 +103,7 @@ public class manager : MonoBehaviour
         bot2.SetActive(true);
         #endif
         }
+        #if UNITY_ANDROID
         if(PlayGamesPlatform.Instance.IsAuthenticated())
         {
             if(juego3d)
@@ -126,12 +126,15 @@ public class manager : MonoBehaviour
                 record3.text = googled.puesto3;
             }
         }
+        #endif
 
     }
     public bool vez1;
     // Update is called once per frame
     void Update()
     {
+        if(juego)
+        {
         if(player2.GetAxis("b") > 0 && tempb == 1f && fin == true)
         {
             salir();
@@ -154,6 +157,7 @@ public class manager : MonoBehaviour
         if(player2.GetAxis("a") > 0 && fin == false)
         {
             tempb = 0;
+        }
         }
 
 
@@ -197,6 +201,10 @@ public class manager : MonoBehaviour
             SceneManager.LoadScene("juego4");
         }
 
+    }
+    public void salir2()
+    {
+        Application.Quit();
     }
     public void reniciar2d()
     {
