@@ -68,18 +68,18 @@ public class google : MonoBehaviour
           LeaderboardCollection.Public, // public scores or social
           LeaderboardTimeSpan.AllTime, // Time span
           (LeaderboardScoreData data) => // callback with scores
-          {                
-
+          {      
                 puesto1 = "1r: "+data.Scores[0].userID+"     "+data.Scores[0].formattedValue;
                 puesto2 = "2o: "+data.Scores[1].userID+"     "+data.Scores[1].formattedValue;
                 puesto3 = "3r: "+data.Scores[2].userID+"     "+data.Scores[2].formattedValue;
 
           }
+
+          
         );
         #endif
 
     }
-    
 
     internal void ProcessAuthentication(SignInStatus status) {
       if (status == SignInStatus.Success) {
@@ -101,4 +101,3 @@ public class google : MonoBehaviour
         Social.ShowAchievementsUI();
     }
 }
-

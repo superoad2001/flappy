@@ -108,16 +108,11 @@ public class manager : MonoBehaviour
         {
             if(juego3d)
             {
-
-            #if UNITY_ANDROID
-            googled.LoadUsers("CgkIq9Xq0KQbEAIQAQ");
-            #endif
+                //googled.LoadUsers("CgkIq9Xq0KQbEAIQAQ");
             }
             if(juego2d)
             {
-            #if UNITY_ANDROID
-            googled.LoadUsers("CgkIq9Xq0KQbEAIQCQ");
-            #endif
+                //googled.LoadUsers("CgkIq9Xq0KQbEAIQCQ");
             }
             if(juego)
             {
