@@ -1,17 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.IO;
-using System;
 
-[Serializable]
-public class datos
+public class laser : MonoBehaviour
 {
-    public int record3d;
-	public int record2d;
 
-    public bool ayuda = false;
-    
+    public GameObject Laser;
+    public GameObject bird;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +16,6 @@ public class datos
     // Update is called once per frame
     void Update()
     {
-        
+        Laser.transform.position = bird.transform.position;
     }
 }

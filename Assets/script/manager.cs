@@ -16,7 +16,7 @@ public class manager : MonoBehaviour
     public Text record1;
     public Text record2;
     public Text record3;
-
+    public Text helptext;
     public InputField namet;
 
     public bool juego;
@@ -128,6 +128,17 @@ public class manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Menu == true)
+        {
+        if(datos.ayuda == true)
+        {
+            helptext.color  = Color.green;
+        }
+        if(datos.ayuda == false)
+        {
+            helptext.color  = Color.yellow;
+        }
+        }
         if(juego)
         {
         if(player2.GetAxis("b") > 0 && tempb == 1f && fin == true)
@@ -209,5 +220,20 @@ public class manager : MonoBehaviour
     public void salir()
     {
         SceneManager.LoadScene("menu");
+    }
+    public void HELP()
+    {
+        if(datos.ayuda == true)
+        {
+            datos.ayuda = false;
+
+
+        }
+        else if(datos.ayuda == false)
+        {
+            datos.ayuda = true;
+            
+        }
+        guardar();
     }
 }
