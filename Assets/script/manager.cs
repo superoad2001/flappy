@@ -19,22 +19,27 @@ public class manager : MonoBehaviour
     public Text helptext;
     public InputField namet;
 
-    public bool juego;
+    public int juego;
 
     public bool namec;
     
     public GameObject canvasperdiste;
     public int dec;
+    public AudioSource musicah;
     public AudioSource musica;
+    public AudioSource musicas;
     public AudioSource musica2;
+    public AudioSource musica3;
+    public AudioSource musica4;
+    public AudioSource musica5;
+    public List<AudioSource> audios = new List<AudioSource>();
     public bool fin ;
     public float tempb = 0;
 
     public bool Menu;
     public GameObject bot1;
     public GameObject bot2;
-    public bool juego3d;
-    public bool juego2d;
+    public bool juegom;
 
     [SerializeField]
     public datos datos;
@@ -90,31 +95,33 @@ public class manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(Menu == false)
+        {
+        audios.Add(musica);
+        audios.Add(musica2);
+        audios.Add(musica3);
+        audios.Add(musica4);
+        audios.Add(musica5);
+        int dec = Random.Range(1,4);
+        musicah = audios[dec];
+        musicah.Play();
+        }
         cargar();
         google googled = UnityEngine.Object.FindObjectOfType<google>();
         Time.timeScale = 1;
         player2 = ReInput.players.GetPlayer(playerID);
-        if(Menu)
-        {
-        bot1.SetActive(false);
-        bot2.SetActive(false);
-        #if UNITY_ANDROID
-        bot1.SetActive(true);
-        bot2.SetActive(true);
-        #endif
-        }
         #if UNITY_ANDROID
         if(PlayGamesPlatform.Instance.IsAuthenticated())
         {
-            if(juego3d)
+            if(juego == 1)
             {
                 //googled.LoadUsers("CgkIq9Xq0KQbEAIQAQ");
             }
-            if(juego2d)
+            if(juego == 2)
             {
                 //googled.LoadUsers("CgkIq9Xq0KQbEAIQCQ");
             }
-            if(juego)
+            if(juegom)
             {
                 record1.text = googled.puesto1;
                 record2.text = googled.puesto2;
@@ -128,32 +135,17 @@ public class manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Menu == true)
-        {
-        if(datos.ayuda == true)
-        {
-            helptext.color  = Color.green;
-        }
-        if(datos.ayuda == false)
-        {
-            helptext.color  = Color.yellow;
-        }
-        }
-        if(juego)
+
+        if(juegom)
         {
         if(player2.GetAxis("b") > 0 && tempb == 1f && fin == true)
         {
             salir();
             tempb = 0;
         }
-        if(player2.GetAxis("a") > 0 && tempb == 1f && fin == true && juego3d)
+        if(player2.GetAxis("a") > 0 && tempb == 1f && fin == true)
         {
             reniciar();
-            tempb = 0;
-        }
-        if(player2.GetAxis("a") > 0 && tempb == 1f && fin == true && juego2d)
-        {
-            reniciar2d();
             tempb = 0;
         }
         if(player2.GetAxis("a") == 0 && tempb == 0 && fin == true)
@@ -181,59 +173,35 @@ public class manager : MonoBehaviour
     {
         canvasperdiste.SetActive(true);
         Time.timeScale = 0;
-        musica.Stop();
-        musica2.Play();
+        musicah.Stop();
+        musicas.Play();
         fin = true;
         tempb = 1;
-    }
-    public void reniciar()
-    {
-        google googled = UnityEngine.Object.FindObjectOfType<google>();
-        dec = Random.Range(1,5);
-        if(dec == 1)
-        {
-            SceneManager.LoadScene("juego");
-        }
-        if(dec == 2)
-        {
-            SceneManager.LoadScene("juego2");
-        }
-        if(dec == 3)
-        {
-            SceneManager.LoadScene("juego3");
-        }
-        if(dec == 4)
-        {
-            SceneManager.LoadScene("juego4");
-        }
-
     }
     public void salir2()
     {
         Application.Quit();
     }
-    public void reniciar2d()
-    {
-        SceneManager.LoadScene("juego2d");
-
-    }
     public void salir()
     {
         SceneManager.LoadScene("menu");
     }
-    public void HELP()
+    public void reniciar()
     {
-        if(datos.ayuda == true)
+        int dec = Random.Range(1,4);
+        if(dec == 1)
         {
-            datos.ayuda = false;
-
-
+        SceneManager.LoadScene("caida2d");
         }
-        else if(datos.ayuda == false)
+        if(dec == 2)
         {
-            datos.ayuda = true;
-            
+        SceneManager.LoadScene("caida3d");
         }
-        guardar();
+        if(dec == 3)
+        {
+        SceneManager.LoadScene("salto2d");
+        }
+
     }
+
 }

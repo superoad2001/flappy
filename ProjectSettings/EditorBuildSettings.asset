@@ -9,18 +9,12 @@ EditorBuildSettings:
     path: Assets/juego/menu.unity
     guid: f78e596ed18f2ec4086305c7314a101b
   - enabled: 1
-    path: Assets/juego/juego.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
-    path: Assets/juego/juego2.unity
+    path: Assets/juego/caida3d.unity
     guid: 2ce7dc3b632c43d47bfce8319a73b719
   - enabled: 1
-    path: Assets/juego/juego3.unity
-    guid: 9b3f343cde512a44fa5501e9bb79923e
-  - enabled: 1
-    path: Assets/juego/juego2D.unity
+    path: Assets/juego/caida2d.unity
     guid: c1a2510d846ce4e49987dce9a77ff9f2
   - enabled: 1
-    path: Assets/juego/juego4.unity
-    guid: 89eb704470048af48a0a6f50ba043927
+    path: Assets/juego/salto2d.unity
+    guid: 66f014068af85a04fac6cf9f3dd9d830
   m_configObjects: {}

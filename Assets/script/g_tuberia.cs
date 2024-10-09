@@ -21,14 +21,69 @@ public class g_tuberia : MonoBehaviour
 
     public float altura;
     public float momento = 5;
-    public bool juego3d;
-    public bool juego2d;
+    public int juego;
     // Start is called before the first frame update
     void Start()
     {
 
 
 
+        if(juego == 2)
+        {
+        GameObject tuberian12 = Instantiate(tuberia);
+        tuberian12.transform.position = transform.position + new Vector3(0,3,30);
+        tuberian12.GetComponent<tuberia>().momento = 99;
+        Destroy(tuberian12, 10);
+
+        GameObject tuberian22 = Instantiate(tuberia2);
+        tuberian22.transform.position = transform.position + new Vector3(0,3,30);
+        tuberian22.GetComponent<tuberia>().momento = 99;
+        Destroy(tuberian22, 10);
+
+        GameObject tuberian = Instantiate(tuberia);
+        tuberian.transform.position = transform.position + new Vector3(0,0,10);
+        tuberian.GetComponent<tuberia>().momento = 99;
+        Destroy(tuberian, 5);
+
+        GameObject tuberian2 = Instantiate(tuberia2);
+        tuberian2.transform.position = transform.position + new Vector3(0,0,10);
+        tuberian2.GetComponent<tuberia>().momento = 99;
+        Destroy(tuberian2, 5);
+        }
+        if(juego == 3)
+        {
+        GameObject tuberian12 = Instantiate(tuberia);
+        tuberian12.transform.position = transform.position + new Vector3(0,-4,30);
+        tuberian12.GetComponent<tuberia>().momento = 5;
+        Destroy(tuberian12, 10);
+
+        GameObject tuberian = Instantiate(tuberia);
+        tuberian.transform.position = transform.position + new Vector3(0,-3,10);
+        tuberian.GetComponent<tuberia>().momento = 2;
+        Destroy(tuberian, 5);
+        }
+
+        if(juego == 1)
+        {
+        GameObject tuberian8 = Instantiate(tuberiabloc);
+        tuberian8.transform.position = transform.position + new Vector3(3,-85,10);
+        tuberian8.GetComponent<tuberia>().momento = 2;
+        Destroy(tuberian8, 5);
+
+        GameObject tuberian9 = Instantiate(tuberiabloc);
+        tuberian9.transform.position = transform.position + new Vector3(-3,-85,10);
+        tuberian9.GetComponent<tuberia>().momento = 2;
+        Destroy(tuberian9, 5);
+
+        GameObject tuberian82 = Instantiate(tuberiabloc);
+        tuberian82.transform.position = transform.position + new Vector3(3,-85,30);
+        tuberian82.GetComponent<tuberia>().momento = 5;
+        Destroy(tuberian82,10 );
+
+        GameObject tuberian92 = Instantiate(tuberiabloc);
+        tuberian92.transform.position = transform.position + new Vector3(-3,-85,30);
+        tuberian92.GetComponent<tuberia>().momento = 5;
+        Destroy(tuberian92,10);
 
         GameObject tuberian12 = Instantiate(tuberia);
         tuberian12.transform.position = transform.position + new Vector3(0,3,30);
@@ -49,29 +104,6 @@ public class g_tuberia : MonoBehaviour
         tuberian2.transform.position = transform.position + new Vector3(0,0,10);
         tuberian2.GetComponent<tuberia>().momento = 2;
         Destroy(tuberian2, 5);
-
-        if(juego3d)
-        {
-
-        GameObject tuberian8 = Instantiate(tuberiabloc);
-        tuberian8.transform.position = transform.position + new Vector3(3,-85,10);
-        tuberian8.GetComponent<tuberia>().momento = 2;
-        Destroy(tuberian8, 5);
-
-        GameObject tuberian9 = Instantiate(tuberiabloc);
-        tuberian9.transform.position = transform.position + new Vector3(-3,-85,10);
-        tuberian9.GetComponent<tuberia>().momento = 2;
-        Destroy(tuberian9, 5);
-
-        GameObject tuberian82 = Instantiate(tuberiabloc);
-        tuberian82.transform.position = transform.position + new Vector3(3,-85,30);
-        tuberian82.GetComponent<tuberia>().momento = 5;
-        Destroy(tuberian82,10 );
-
-        GameObject tuberian92 = Instantiate(tuberiabloc);
-        tuberian92.transform.position = transform.position + new Vector3(-3,-85,30);
-        tuberian92.GetComponent<tuberia>().momento = 5;
-        Destroy(tuberian92,10);
         }
 
     }
@@ -79,7 +111,7 @@ public class g_tuberia : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(juego3d)
+        if(juego == 1)
         {
 
 
@@ -197,7 +229,7 @@ public class g_tuberia : MonoBehaviour
                 tempin += Time.deltaTime;
             }
         }
-        if(juego2d)
+        if(juego == 2)
         {
 
 
@@ -207,7 +239,7 @@ public class g_tuberia : MonoBehaviour
             
 
 
-                momento = 6;
+                momento = 20;
 
                 GameObject tuberian = Instantiate(tuberia);
                 tuberian.transform.position = transform.position + new Vector3(0,dec,30);
@@ -220,6 +252,72 @@ public class g_tuberia : MonoBehaviour
                 Destroy(tuberian2, dest);
 
                 tempin = 0;
+    
+            }
+            else
+            {
+                tempin += Time.deltaTime;
+            }
+        }
+        if(juego == 3)
+        {
+            if(tempin > tempmax)
+            {
+
+                dec2 = Random.Range(1,4);
+
+                if(dec2 == 1)
+                {
+                dec = Random.Range(-3,-1);
+                momento = 6;
+
+                GameObject tuberian = Instantiate(tuberia);
+                tuberian.transform.position = transform.position + new Vector3(0,dec,30);
+                tuberian.GetComponent<tuberia>().momento = momento;
+                Destroy(tuberian, dest);
+
+                tempin = 0;
+                tempmax = Random.Range(3,4);
+                }
+                if(dec2 == 2)
+                {
+                    
+                dec = Random.Range(-2,-2);
+                momento = 6;
+
+                GameObject tuberian = Instantiate(tuberia);
+                tuberian.transform.position = transform.position + new Vector3(0,dec,30);
+                tuberian.GetComponent<tuberia>().momento = momento;
+                Destroy(tuberian, dest);
+                GameObject tuberian2 = Instantiate(tuberia);
+                tuberian2.transform.position = transform.position + new Vector3(0,dec,33);
+                tuberian2.GetComponent<tuberia>().momento = momento;
+                Destroy(tuberian2, dest);
+
+                tempin = 0;
+                tempmax = Random.Range(3,4);
+                }
+                if(dec2 == 3)
+                {
+                dec = Random.Range(-5,-3);
+                momento = 6;
+
+                GameObject tuberian = Instantiate(tuberia);
+                tuberian.transform.position = transform.position + new Vector3(0,dec,30);
+                tuberian.GetComponent<tuberia>().momento = momento;
+                Destroy(tuberian, dest);
+                GameObject tuberian2 = Instantiate(tuberia);
+                tuberian2.transform.position = transform.position + new Vector3(0,dec,33);
+                tuberian2.GetComponent<tuberia>().momento = momento;
+                Destroy(tuberian2, dest);
+                GameObject tuberian3 = Instantiate(tuberia);
+                tuberian3.transform.position = transform.position + new Vector3(0,dec,36);
+                tuberian3.GetComponent<tuberia>().momento = momento;
+                Destroy(tuberian3, dest);
+
+                tempin = 0;
+                tempmax = Random.Range(3,5);
+                }
     
             }
             else

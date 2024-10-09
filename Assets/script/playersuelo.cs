@@ -21,6 +21,7 @@ public class playersuelo : MonoBehaviour
     public manager manager;
     public puntaje puntaje;
     public float tempb;
+    public float tempc;
     public float record;
     public bool vez1 = false;
 
@@ -47,9 +48,11 @@ public class playersuelo : MonoBehaviour
         manager manager = UnityEngine.Object.FindObjectOfType<manager>();
         if(juego3d)
         {
+
         }
         if(juego2d)
         {
+            record = manager.datos.recordsalto2d;
         }
     }
 
@@ -72,13 +75,12 @@ public class playersuelo : MonoBehaviour
             tapder = true;
             tempb = 0;
         }
-        baseanim.SetBool("tap", false);
         if(tap == true && suelo == true)
         {
             quack.Play();
             _rb.velocity = Vector3.up * vel;
             baseanim.SetBool("suelo", true);
-            suelo = false;
+            tempc = 0;
         }
         if(juego3d)
         {
@@ -122,9 +124,18 @@ public class playersuelo : MonoBehaviour
         tap = false;
         tapder = false;
         tapizq = false;
+        if(suelo == false && tempc > 0.9)
+        {
+            _rb.velocity = Vector3.up * -10;
+            tempc = 0;
+        }
         if(tempb < 10)
         {
             tempb += 1 * Time.deltaTime;
+        }
+        if(tempc < 10)
+        {
+            tempc += 1 * Time.deltaTime;
         }
         
     }
@@ -137,12 +148,34 @@ public class playersuelo : MonoBehaviour
         }
         if(col.gameObject.tag == "suelo")
         {
+            suelo = true;
+            baseanim.SetBool("suelo", false);
+        }
+        
+    }
+    public void OnCollisionExit(Collision col) 
+    {
+        if(col.gameObject.tag == "suelo")
+        {
             suelo = false;
+        }
+        
+    }
+    public void OnCollisionStay(Collision col) 
+    {
+        if(col.gameObject.tag != "suelo")
+        {
+            
         }
         
     }
     public void OnTriggerEnter(Collider col) 
     {
+        if(col.gameObject.tag == "mata")
+        {
+            caidas.Play();
+            manager.perder();
+        }
         if(col.gameObject.tag == "puntomas")
         {
             alas.Play();

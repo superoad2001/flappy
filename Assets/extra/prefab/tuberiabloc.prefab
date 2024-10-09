@@ -9,11 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9075630630799961673}
-  - component: {fileID: 9075630630799961672}
   - component: {fileID: 9075630630799961678}
   m_Layer: 0
   m_Name: tuberiabloc
-  m_TagString: mata
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25,6 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9075630630799961675}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10.06469, y: -85, z: 40}
   m_LocalScale: {x: 1, y: 6, z: 1}
@@ -32,21 +32,7 @@ Transform:
   m_Children:
   - {fileID: 8825265833426305249}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &9075630630799961672
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9075630630799961675}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.1652145, y: 11.331543, z: 1.9321699}
-  m_Center: {x: 9.981985, y: 17.905426, z: -1.1652119}
 --- !u!114 &9075630630799961678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,12 +46,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vel: 7
+  momento: 0
+  manager: {fileID: 0}
+  temp: 0
 --- !u!1001 &9075630629759559434
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 2
+    serializedVersion: 3
     m_TransformParent: {fileID: 9075630630799961673}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 5ff03556bdcb46940bf613f77b8738f3, type: 3}
@@ -116,9 +105,68 @@ PrefabInstance:
       propertyPath: m_Name
       value: tuberia (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5ff03556bdcb46940bf613f77b8738f3, type: 3}
+      propertyPath: m_TagString
+      value: mata
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5ff03556bdcb46940bf613f77b8738f3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5204074859537443035}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5ff03556bdcb46940bf613f77b8738f3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3920032652203314687}
   m_SourcePrefab: {fileID: 100100000, guid: 5ff03556bdcb46940bf613f77b8738f3, type: 3}
+--- !u!1 &8156709594353375835 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5ff03556bdcb46940bf613f77b8738f3, type: 3}
+  m_PrefabInstance: {fileID: 9075630629759559434}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &5204074859537443035
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8156709594353375835}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.1652145, y: 11.331543, z: 1.9321699}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &3920032652203314687
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8156709594353375835}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.1652145, y: 11.331543, z: 1.9321699}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &8825265833426305249 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5ff03556bdcb46940bf613f77b8738f3, type: 3}

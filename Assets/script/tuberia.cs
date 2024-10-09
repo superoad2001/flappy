@@ -20,7 +20,7 @@ public class tuberia : MonoBehaviour
         manager = UnityEngine.Object.FindObjectOfType<g_tuberia>();
         transform.position += Vector3.back * vel * Time.deltaTime;
 
-        if(temp > momento)
+        if(temp > momento && manager.juego == 1)
         {
             vel = 40;
         }

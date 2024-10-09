@@ -16,21 +16,24 @@ public class puntaje : MonoBehaviour
     public Text nrecord2;
     public google googled;
 
-    public bool juego3d;
-    public bool juego2d;
+    public int juego;
     // Start is called before the first frame update
     void Start()
     {
         google googled = UnityEngine.Object.FindObjectOfType<google>();
         manager manager = UnityEngine.Object.FindObjectOfType<manager>();
         puntaje1 = 0;
-        if(juego3d)
+        if(juego == 1)
         {
         record = manager.datos.record3d;
         }
-        if(juego2d)
+        if(juego == 2)
         {
         record = manager.datos.record2d;
+        }
+        if(juego == 3)
+        {
+        record = manager.datos.recordsalto2d;
         }
     }
 
@@ -43,13 +46,17 @@ public class puntaje : MonoBehaviour
         if(puntaje1 > record)
         {
             record = puntaje1;
-            if(juego3d)
+            if(juego == 1)
             {
             manager.datos.record3d = record;
             }
-            if(juego2d)
+            if(juego == 2)
             {
             manager.datos.record2d = record;
+            }
+            if(juego == 3)
+            {
+            manager.datos.recordsalto2d = record;
             }
             manager.guardar();
             nrecord.text = "nuevo record";
@@ -59,15 +66,19 @@ public class puntaje : MonoBehaviour
         #if UNITY_ANDROID
             if(PlayGamesPlatform.Instance.IsAuthenticated())
             {
-                if(juego3d)
+                if(juego == 1)
                 {
                     Social.ReportScore(record, "CgkIq9Xq0KQbEAIQAQ", (bool success) => {});
                 }
-                if(juego2d)
+                if(juego == 2)
                 {
                     Social.ReportScore(record, "CgkIq9Xq0KQbEAIQCQ", (bool success) => {});
                 }
-                if(manager.datos.record3d >= 100  || manager.datos.record2d >= 100)
+                if(juego == 3)
+                {
+                    Social.ReportScore(record, "CgkIq9Xq0KQbEAIQDA", (bool success) => {});
+                }
+                if(manager.datos.record3d >= 100  || manager.datos.record2d >= 100 || manager.datos.recordsalto2d >= 100)
                 {
                     Social.ReportProgress("CgkIq9Xq0KQbEAIQAg", 100.0f, (bool success) => {});
                 }

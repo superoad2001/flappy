@@ -25,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 318645687}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10.06469, y: 9.91, z: -1.14}
   m_LocalScale: {x: 2, y: 4.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 579908288471056417}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &318645690
 MeshFilter:
@@ -49,9 +49,17 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 318645687}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 1
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &579908288471056423
@@ -63,11 +71,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 579908288471056417}
-  - component: {fileID: 579908288471056416}
   - component: {fileID: 579908288471056418}
   m_Layer: 0
   m_Name: tuberia_abj
-  m_TagString: mata
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,6 +86,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 579908288471056423}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10.064694, y: 1.1160297, z: 40}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -87,21 +95,7 @@ Transform:
   - {fileID: 1118729963205439185}
   - {fileID: 318645688}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &579908288471056416
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 579908288471056423}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.1652107, y: 11.71995, z: 2.1652126}
-  m_Center: {x: 10.059666, y: 1.8643398, z: -1.1263711}
 --- !u!114 &579908288471056418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,12 +109,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vel: 7
+  momento: 0
+  manager: {fileID: 0}
+  temp: 0
 --- !u!1001 &579908288574867770
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    serializedVersion: 2
+    serializedVersion: 3
     m_TransformParent: {fileID: 579908288471056417}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 5ff03556bdcb46940bf613f77b8738f3, type: 3}
@@ -171,9 +168,68 @@ PrefabInstance:
       propertyPath: m_Name
       value: tuberia
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5ff03556bdcb46940bf613f77b8738f3, type: 3}
+      propertyPath: m_TagString
+      value: mata
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5ff03556bdcb46940bf613f77b8738f3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1343203723200490551}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5ff03556bdcb46940bf613f77b8738f3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6118718524649739166}
   m_SourcePrefab: {fileID: 100100000, guid: 5ff03556bdcb46940bf613f77b8738f3, type: 3}
+--- !u!1 &346027673522435179 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5ff03556bdcb46940bf613f77b8738f3, type: 3}
+  m_PrefabInstance: {fileID: 579908288574867770}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1343203723200490551
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 346027673522435179}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.1652107, y: 11.71995, z: 2.1652126}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &6118718524649739166
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 346027673522435179}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.1652107, y: 11.71995, z: 2.1652126}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1118729963205439185 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5ff03556bdcb46940bf613f77b8738f3, type: 3}
