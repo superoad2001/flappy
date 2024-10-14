@@ -35,6 +35,10 @@ public class puntaje : MonoBehaviour
         {
         record = manager.datos.recordsalto2d;
         }
+        if(juego == 4)
+        {
+        record = manager.datos.recordsalto3d;
+        }
     }
 
     // Update is called once per frame
@@ -58,6 +62,10 @@ public class puntaje : MonoBehaviour
             {
             manager.datos.recordsalto2d = record;
             }
+            if(juego == 4)
+            {
+            manager.datos.recordsalto3d = record;
+            }
             manager.guardar();
             nrecord.text = "nuevo record";
             nrecord2.text = "nuevo record";
@@ -78,7 +86,11 @@ public class puntaje : MonoBehaviour
                 {
                     Social.ReportScore(record, "CgkIq9Xq0KQbEAIQDA", (bool success) => {});
                 }
-                if(manager.datos.record3d >= 100  || manager.datos.record2d >= 100 || manager.datos.recordsalto2d >= 100)
+                if(juego == 4)
+                {
+                    Social.ReportScore(record, "CgkIq9Xq0KQbEAIQDQ", (bool success) => {});
+                }
+                if(record >= 100)
                 {
                     Social.ReportProgress("CgkIq9Xq0KQbEAIQAg", 100.0f, (bool success) => {});
                 }

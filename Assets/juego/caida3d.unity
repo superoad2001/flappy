@@ -336,7 +336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09ddf06aa25ff2d469341fb327df0f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tempmax: 3
+  tempmax: 1.7
   tempin: 0
   tuberia: {fileID: 6969365441757790688, guid: b20d23c60962fd64181c7eb473a5e171, type: 3}
   tuberia2: {fileID: 579908288471056423, guid: cd3ee9aa2b2819241a64cd20588b9aee, type: 3}
@@ -347,7 +347,9 @@ MonoBehaviour:
   dec4: 0
   dec5: 0
   dec6: 0
-  dest: 10
+  dec7: 0
+  dec8: 0
+  dest: 40
   ant: 0
   ant2: 0
   altura: 3
@@ -393,6 +395,7 @@ MonoBehaviour:
     record3d: 0
     record2d: 0
     recordsalto2d: 0
+    recordsalto3d: 0
     ayuda: 0
   repath: 
   vez1: 0
@@ -1483,13 +1486,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.08246034, y: -0, z: -0, w: 0.99659437}
-  m_LocalPosition: {x: 10.2, y: 11.79397, z: -25.035944}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.2, y: 10.46, z: -25.035944}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2116906929}
-  m_LocalEulerAnglesHint: {x: 9.46, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1030838802
 GameObject:
   m_ObjectHideFlags: 0
@@ -1696,7 +1699,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fdaaef9c5f813840a91971e34b0c86d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vel: 7
+  vel: 18
 --- !u!1 &1119503402
 GameObject:
   m_ObjectHideFlags: 0

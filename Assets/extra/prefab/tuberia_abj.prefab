@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac3f75cc6d3068a42a67365d3c4fa46c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vel: 7
+  vel: 18
   momento: 0
   manager: {fileID: 0}
   temp: 0

@@ -121,12 +121,6 @@ public class manager : MonoBehaviour
             {
                 //googled.LoadUsers("CgkIq9Xq0KQbEAIQCQ");
             }
-            if(juegom)
-            {
-                record1.text = googled.puesto1;
-                record2.text = googled.puesto2;
-                record3.text = googled.puesto3;
-            }
         }
         #endif
 
@@ -136,26 +130,22 @@ public class manager : MonoBehaviour
     void Update()
     {
 
-        if(juegom)
+        if(player2.GetButtonDown("b") && fin == true)
         {
-        if(player2.GetAxis("b") > 0 && tempb == 1f && fin == true)
-        {
-            salir();
+            if(Menu == true)
+            {
+                salir2();
+            }
+            else
+            {
+                salir();
+            }
             tempb = 0;
         }
-        if(player2.GetAxis("a") > 0 && tempb == 1f && fin == true)
+        if(player2.GetButtonDown("a") && fin == true)
         {
             reniciar();
             tempb = 0;
-        }
-        if(player2.GetAxis("a") == 0 && tempb == 0 && fin == true)
-        {
-            tempb = 1;
-        }
-        if(player2.GetAxis("a") > 0 && fin == false)
-        {
-            tempb = 0;
-        }
         }
 
 
@@ -166,17 +156,22 @@ public class manager : MonoBehaviour
         {
             vez1 = true;
         }
+        if(tempb < 10)
+        {
+            tempb += 1 * Time.deltaTime;
+        }
 
         
     }
     public void perder()
     {
+        tempb = 1;
         canvasperdiste.SetActive(true);
-        Time.timeScale = 0;
         musicah.Stop();
         musicas.Play();
         fin = true;
-        tempb = 1;
+        Time.timeScale = 0;
+        
     }
     public void salir2()
     {
@@ -188,7 +183,7 @@ public class manager : MonoBehaviour
     }
     public void reniciar()
     {
-        int dec = Random.Range(1,4);
+        int dec = Random.Range(1,5);
         if(dec == 1)
         {
         SceneManager.LoadScene("caida2d");
@@ -200,6 +195,10 @@ public class manager : MonoBehaviour
         if(dec == 3)
         {
         SceneManager.LoadScene("salto2d");
+        }
+        if(dec == 4)
+        {
+        SceneManager.LoadScene("salto3d");
         }
 
     }

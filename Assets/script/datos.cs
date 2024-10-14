@@ -10,6 +10,7 @@ public class datos
     public int record3d;
 	public int record2d;
     public int recordsalto2d;
+    public int recordsalto3d;
 
     public bool ayuda = false;
     

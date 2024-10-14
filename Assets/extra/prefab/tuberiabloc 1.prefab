@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9075630630799961673}
   - component: {fileID: 9075630630799961678}
   m_Layer: 0
-  m_Name: tuberiabloc
+  m_Name: tuberiabloc 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac3f75cc6d3068a42a67365d3c4fa46c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vel: 18
+  vel: 7
   momento: 0
   manager: {fileID: 0}
   temp: 0

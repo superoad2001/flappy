@@ -28,6 +28,7 @@ public static class GPGSIds
         public const string leaderboard_run_2d = "CgkIq9Xq0KQbEAIQDA"; // <GPGSID>
         public const string leaderboard_vuelo_3d = "CgkIq9Xq0KQbEAIQAQ"; // <GPGSID>
         public const string leaderboard_vuelo_2d = "CgkIq9Xq0KQbEAIQCQ"; // <GPGSID>
+        public const string leaderboard_run_3d = "CgkIq9Xq0KQbEAIQDQ"; // <GPGSID>
 
 }
 

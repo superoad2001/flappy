@@ -22,7 +22,7 @@ public class tuberia : MonoBehaviour
 
         if(temp > momento && manager.juego == 1)
         {
-            vel = 40;
+            //vel = 40;
         }
         temp += 1 * Time.deltaTime;
     }

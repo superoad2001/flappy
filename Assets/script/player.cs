@@ -57,23 +57,27 @@ public class player : MonoBehaviour
         {
             record = manager.datos.recordsalto2d;
         }
+        if(juego == 4)
+        {
+            record = manager.datos.recordsalto3d;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if(player2.GetAxis("a") > 0 && tempb > 0.4f && manager.fin == false)
+        if(player2.GetButtonDown("a") && manager.fin == false)
         {
             tap = true;
             tempb = 0;
         }
-        if(player2.GetAxis("hori") < 0 && tempb > 0.4f && manager.fin == false)
+        if(player2.GetButtonDown("izq") && manager.fin == false)
         {
             tapizq = true;
             tempb = 0;
         }
-        if(player2.GetAxis("hori") > 0 && tempb > 0.4f && manager.fin == false)
+        if(player2.GetButtonDown("der") && manager.fin == false)
         {
             tapder = true;
             tempb = 0;
@@ -88,7 +92,7 @@ public class player : MonoBehaviour
                 baseanim.SetBool("tap", true);
                 tempd = 0;
             }
-            if(juego == 3)
+            if(juego == 3 || juego == 4)
             {
                 if(suelo == true)
                 {
@@ -105,7 +109,12 @@ public class player : MonoBehaviour
             _rb.velocity = Vector3.up * -3;
             tempd = 0;
         }
-        if(juego == 1)
+        if(juego == 1 && tempd > 0.6)
+        {
+            _rb.velocity = Vector3.up * -3;
+            tempd = 0;
+        }
+        if(juego == 1 || juego == 4 )
         {
             if(tapder == true)
             {
@@ -150,6 +159,11 @@ public class player : MonoBehaviour
         if(suelo == false && tempc > 0.9 && juego == 3)
         {
             _rb.velocity = Vector3.up * -10;
+            tempc = 0;
+        }
+        if(suelo == false && tempc > 0.65 && juego == 4)
+        {
+            _rb.velocity = Vector3.up * -20;
             tempc = 0;
         }
         if(tempb < 10)

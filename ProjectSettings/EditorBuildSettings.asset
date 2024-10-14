@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/juego/salto2d.unity
     guid: 66f014068af85a04fac6cf9f3dd9d830
+  - enabled: 1
+    path: Assets/juego/salto3d.unity
+    guid: 059f706d4a3dfac458f9ef653c274e3d
   m_configObjects: {}

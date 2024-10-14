@@ -361,6 +361,7 @@ MonoBehaviour:
     record3d: 0
     record2d: 0
     recordsalto2d: 0
+    recordsalto3d: 0
     ayuda: 0
   repath: 
   vez1: 0
@@ -378,9 +379,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tempmax: 6
   tempin: 0
-  tuberia: {fileID: 6969365441757790688, guid: b20d23c60962fd64181c7eb473a5e171, type: 3}
-  tuberia2: {fileID: 579908288471056423, guid: cd3ee9aa2b2819241a64cd20588b9aee, type: 3}
-  tuberiabloc: {fileID: 9075630630799961675, guid: 17f353dfa32e9f94799271789b2958e6, type: 3}
+  tuberia: {fileID: 6969365441757790688, guid: aeadd1eb66bfdd34daf12ff5cf2a6839, type: 3}
+  tuberia2: {fileID: 579908288471056423, guid: aacdf938302dcd04988018965eed8068, type: 3}
+  tuberiabloc: {fileID: 9075630630799961675, guid: a5dfd5aaf88f40a43a49017355bf2fad, type: 3}
   dec: 0
   dec2: 0
   dec3: 0
@@ -569,10 +570,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 8980838}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -36, y: 445}
-  m_SizeDelta: {x: 450, y: 301.59}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 407, y: -515}
+  m_SizeDelta: {x: 450, y: 301.58997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &480261114
 MonoBehaviour:
@@ -1252,10 +1253,10 @@ RectTransform:
   - {fileID: 1358515587}
   m_Father: {fileID: 8980838}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -326, y: 757.9812}
-  m_SizeDelta: {x: 264, y: 266.3}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 117, y: -202.0188}
+  m_SizeDelta: {x: 264, y: 266.30005}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &966145128
 MonoBehaviour:
