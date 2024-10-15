@@ -26,4 +26,3 @@ public class QUACK : MonoBehaviour
         temp += 1 * Time.deltaTime;
     }
 }
-//
