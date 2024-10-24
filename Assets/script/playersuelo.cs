@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Rewired;
+//using Rewired;
 
 public class playersuelo : MonoBehaviour
 {
-    [SerializeField]private int playerID = 0;
-	[SerializeField]private Player player2;
+    //[SerializeField]private int playerID = 0;
+	//[SerializeField]private Player player2;
     public bool tap;
     public bool tapder;
     public bool tapizq;
@@ -44,7 +44,7 @@ public class playersuelo : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
-        player2 = ReInput.players.GetPlayer(playerID);
+        //player2 = ReInput.players.GetPlayer(playerID);
         manager manager = UnityEngine.Object.FindObjectOfType<manager>();
         if(juego3d)
         {
@@ -60,7 +60,7 @@ public class playersuelo : MonoBehaviour
     void Update()
     {
 
-        if(player2.GetAxis("a") > 0 && tempb > 0.4f && manager.fin == false)
+        /*if(player2.GetAxis("a") > 0 && tempb > 0.4f && manager.fin == false)
         {
             tap = true;
             tempb = 0;
@@ -78,10 +78,10 @@ public class playersuelo : MonoBehaviour
         if(tap == true && suelo == true)
         {
             quack.Play();
-            _rb.velocity = Vector3.up * vel;
+            _rb.linearVelocity = Vector3.up * vel;
             baseanim.SetBool("suelo", true);
             tempc = 0;
-        }
+        }*/
         if(juego3d)
         {
             if(tapder == true)
@@ -126,7 +126,7 @@ public class playersuelo : MonoBehaviour
         tapizq = false;
         if(suelo == false && tempc > 0.9)
         {
-            _rb.velocity = Vector3.up * -10;
+            _rb.linearVelocity = Vector3.up * -10;
             tempc = 0;
         }
         if(tempb < 10)

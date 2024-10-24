@@ -20,4 +20,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/juego/salto3d.unity
     guid: 059f706d4a3dfac458f9ef653c274e3d
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 6b03fcf01127bbb46806e7505cebba5f, type: 3}
+  m_UseUCBPForAssetBundles: 0

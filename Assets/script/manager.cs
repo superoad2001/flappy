@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Rewired;
 using UnityEditor;
 using UnityEngine.UI;
 using GooglePlayGames;
@@ -10,8 +9,7 @@ using System.IO;
 
 public class manager : MonoBehaviour
 {
-    [SerializeField]private int playerID = 0;
-	[SerializeField]private Player player2;
+    private Controles controles;
 
     public Text record1;
     public Text record2;
@@ -45,7 +43,18 @@ public class manager : MonoBehaviour
     public datos datos;
 
     public string repath;
-
+    public void Awake()
+    {
+        controles = new Controles();
+    }
+    private void OnEnable() 
+    {
+        controles.Enable();
+    }
+    private void OnDisable() 
+    {
+        controles.Disable();
+    }
     public void GetFilePath()
     {
         string result;
@@ -109,7 +118,7 @@ public class manager : MonoBehaviour
         cargar();
         google googled = UnityEngine.Object.FindObjectOfType<google>();
         Time.timeScale = 1;
-        player2 = ReInput.players.GetPlayer(playerID);
+        //player2 = ReInput.players.GetPlayer(playerID);
         #if UNITY_ANDROID
         if(PlayGamesPlatform.Instance.IsAuthenticated())
         {
@@ -130,7 +139,7 @@ public class manager : MonoBehaviour
     void Update()
     {
 
-        if(player2.GetButtonDown("b") && fin == true)
+        if(controles.Base.atras.ReadValue<float>() > 0 && fin == true)
         {
             if(Menu == true)
             {
@@ -142,7 +151,7 @@ public class manager : MonoBehaviour
             }
             tempb = 0;
         }
-        if(player2.GetButtonDown("a") && fin == true)
+        if(controles.Base.space.ReadValue<float>() > 0 && fin == true)
         {
             reniciar();
             tempb = 0;

@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Rewired;
 
 public class player : MonoBehaviour
 {
-    [SerializeField]private int playerID = 0;
-	[SerializeField]private Player player2;
+    private Controles controles;
+
     public bool tap;
     public bool tapder;
     public bool tapizq;
@@ -27,6 +26,18 @@ public class player : MonoBehaviour
     public int juego = 1;
     public bool suelo;
     public float tempc;
+    public void Awake()
+    {
+        controles = new Controles();
+    }
+    private void OnEnable() 
+    {
+        controles.Enable();
+    }
+    private void OnDisable() 
+    {
+        controles.Disable();
+    }
     public void _tap()
     {
         tap = true;
@@ -43,7 +54,6 @@ public class player : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
-        player2 = ReInput.players.GetPlayer(playerID);
         manager manager = UnityEngine.Object.FindObjectOfType<manager>();
         if(juego == 1)
         {
@@ -67,17 +77,17 @@ public class player : MonoBehaviour
     void Update()
     {
 
-        if(player2.GetButtonDown("a") && manager.fin == false)
+        if(controles.Base.space.ReadValue<float>() > 0 && manager.fin == false)
         {
             tap = true;
             tempb = 0;
         }
-        if(player2.GetButtonDown("izq") && manager.fin == false)
+        if(controles.Base.izq.ReadValue<float>() > 0 && manager.fin == false)
         {
             tapizq = true;
             tempb = 0;
         }
-        if(player2.GetButtonDown("der") && manager.fin == false)
+        if(controles.Base.der.ReadValue<float>() > 0 && manager.fin == false)
         {
             tapder = true;
             tempb = 0;
@@ -88,7 +98,7 @@ public class player : MonoBehaviour
             if(juego == 1 || juego == 2)
             {
                 quack.Play();
-                _rb.velocity = Vector3.up * vel;
+                _rb.linearVelocity = Vector3.up * vel;
                 baseanim.SetBool("tap", true);
                 tempd = 0;
             }
@@ -97,7 +107,7 @@ public class player : MonoBehaviour
                 if(suelo == true)
                 {
                     quack.Play();
-                    _rb.velocity = Vector3.up * vel;
+                    _rb.linearVelocity = Vector3.up * vel;
                     baseanim.SetBool("suelo", true);
                     tempc = 0;
                 }
@@ -106,12 +116,12 @@ public class player : MonoBehaviour
         }
         if(juego == 2 && tempd > 0.4)
         {
-            _rb.velocity = Vector3.up * -3;
+            _rb.linearVelocity = Vector3.up * -3;
             tempd = 0;
         }
         if(juego == 1 && tempd > 0.6)
         {
-            _rb.velocity = Vector3.up * -3;
+            _rb.linearVelocity = Vector3.up * -3;
             tempd = 0;
         }
         if(juego == 1 || juego == 4 )
@@ -158,12 +168,12 @@ public class player : MonoBehaviour
         tapizq = false;
         if(suelo == false && tempc > 0.9 && juego == 3)
         {
-            _rb.velocity = Vector3.up * -10;
+            _rb.linearVelocity = Vector3.up * -10;
             tempc = 0;
         }
         if(suelo == false && tempc > 0.65 && juego == 4)
         {
-            _rb.velocity = Vector3.up * -20;
+            _rb.linearVelocity = Vector3.up * -20;
             tempc = 0;
         }
         if(tempb < 10)
